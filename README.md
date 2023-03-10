@@ -10,11 +10,11 @@ The repo uses npm for package management. It has a test case file and defect fil
 
 - Install npm
 - Install cypress
-- Clone the repo
-- In terminal, cd into the projects root folder and run `npx: cypress open`
+- Clone the `zillow` repo
+- In terminal, cd into the projects root folder and run `npx cypress open`
 - A cypress browser window should open up
 - Click E2E Testing
-- Select Chrome and click 'Start E2E Testing in Chrome"
+- Select Chrome and click 'Start E2E Testing in Chrome'
 - Click `Specs` in the nav menu of the cypress browser window
 - Click on the `mortgage-rate-calc` file in `cypress/e2e/zillow` or whatever test file you would like to run
 - The tests should kick off and can monitored in the cypress browser window

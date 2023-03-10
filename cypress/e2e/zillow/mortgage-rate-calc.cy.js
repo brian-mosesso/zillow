@@ -26,8 +26,8 @@ describe('mortgage rate calculator', () => {
     cy.get('#label_4').as('interestRateLabel').should('have.text', 'Interest rate')
     // clicks on the interest rate input and checks focus
     cy.get(interestRateSelector)
-    .click()
-    .should('have.focus')
+      .click()
+      .should('have.focus')
   })
 
   it('interest rate can be changed and enter pressed', () => {
