@@ -56,12 +56,13 @@ describe('mortgage rate calculator', () => {
   })
 
   it('correct error shows for invalid number', () => {
+    let invalidString = "three"
     // clicks on the interest rate input and types in new rate using typeValue function
-    typeValue(interestRateSelector, 'three')
+    typeValue(interestRateSelector, invalidString)
     // checks the error message, it should error because text was entered and only numbers are accepted
     cy.get(principalAndInterestSelector).click()
     cy.get(errorMessageSelector)
-      .contains("'three' is not a valid number")
+      .contains(`'${invalidString}' is not a valid number`)
   })
 
   it('correct error shows for no value', () => {
@@ -74,8 +75,9 @@ describe('mortgage rate calculator', () => {
   })
 
   it('correct error shows for max value', () => {
+    let maxValue = 101
     // clicks on the interest rate input and types in new rate using typeValue function
-    typeValue(interestRateSelector, 101)
+    typeValue(interestRateSelector, maxValue)
     // checks the error message, it should error because only numbers equal or less than 100 are valid
     cy.get(principalAndInterestSelector).click()
     cy.get(errorMessageSelector)
@@ -83,8 +85,9 @@ describe('mortgage rate calculator', () => {
   })
 
   it('correct error shows for min value', () => {
+    let minValue = -3
     // clicks on the interest rate input and types in new rate using typeValue function
-    typeValue(interestRateSelector, -3)
+    typeValue(interestRateSelector, minValue)
     // checks the error message, it should error because only numbers equal or greater than 0 are valid
     cy.get(principalAndInterestSelector).click()
     cy.get(errorMessageSelector)
@@ -92,11 +95,12 @@ describe('mortgage rate calculator', () => {
   })
 
   it('correct error shows for special character', () => {
+    let specialChar = '#5'
     // clicks on the interest rate input and types in new rate using typeValue function
-    typeValue(interestRateSelector, '#5')
+    typeValue(interestRateSelector, specialChar)
     // checks the error message, it should error because special char was entered and only numbers are accepted
     cy.get(principalAndInterestSelector).click()
     cy.get(errorMessageSelector)
-      .contains("'#5' is not a valid number")
+      .contains(`'${specialChar}' is not a valid number`)
   })
 })
